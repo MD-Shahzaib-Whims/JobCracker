@@ -5,7 +5,7 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Moon, Sun, Search } from "lucide-react"
-import { SidebarToggle } from "./sidebar"
+import { SidebarToggle } from "@/components/ui/sidebar"
 
 export function Navbar() {
   const { setTheme, theme } = useTheme()
