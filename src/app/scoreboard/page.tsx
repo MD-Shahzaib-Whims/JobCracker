@@ -26,7 +26,7 @@ export default async function ScoreboardPage() {
       <h1 className="text-3xl font-bold mb-6">Scoreboard</h1>
       <table className="w-full max-w-2xl">
         <thead>
-          <tr className="bg-gray-200">
+          <tr className="dark:bg-slate-800 bg-gray-200">
             <th className="p-2 text-left">Rank</th>
             <th className="p-2 text-left">Name</th>
             <th className="p-2 text-left">Score</th>

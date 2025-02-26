@@ -7,12 +7,15 @@ import bcrypt from "bcryptjs"
 
 const prisma = new PrismaClient()
 
-const handler = NextAuth({
+export const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
+      authorization: {
+        params: { redirect_uri: process.env.GITHUB_CALLBACK_URL },
+      },
     }),
     CredentialsProvider({
       name: "Credentials",
@@ -55,7 +58,9 @@ const handler = NextAuth({
   pages: {
     signIn: "/auth/signin",
   },
-})
+}
 
-export { handler as GET, handler as POST }
+// Use authOptions with NextAuth
+const handler = NextAuth(authOptions as any);
 
+export { handler as GET, handler as POST };
